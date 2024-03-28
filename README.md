@@ -4,6 +4,5 @@ Which can check Wi-Fi( for shitty win10 & 11 Wi-Fi disconnecting problems) and c
 
 using cv2, selenium, tqdm libs
 
-INISTALLITION
-
+## installation
 Just run Logger.py! 
