@@ -39,4 +39,4 @@ while(True):
               """)
         Connect.wifi()
 
-    time.sleep(wait)
+    time.sleep(10)

@@ -38,7 +38,7 @@ def encode(image_name, secret_data):
     # maximum bytes to encode
     n_bytes = image.shape[0] * image.shape[1] * 3 // 8
     if len(secret_data) > n_bytes:
-        raise ValueError("[!] Insufficient bytes, need bigger image or less data.")
+        raise ValueError(" Insufficient bytes, need bigger image or less data.")
     # add stopping criteria
     secret_data += "====="
     data_index = 0
@@ -112,7 +112,18 @@ def add_Password():
     # decode the secret data from the image
     return print("Password added.")
 
-
+def clear_Password():
+    """clearing License from any password!
+    !!!!USE WITH COTIONS!!!!
+    """
+    input_image = "CreatorPlusLICENSE.png"
+    output_image = "CreatorPlusLICENSE.png"
+    # encode the data into the image
+    encoded_image = encode( "CreatorPlusLICENSE.png",secret_data="" )
+    # save the output image (encoded image)
+    cv2.imwrite(output_image, encoded_image)
+    # decode the secret data from the image
+    return print("Clear!")
 
 
 
@@ -133,16 +144,13 @@ def get_Password():
             """
     if os.path.isfile("CreatorPlusLICENSE.png"):
         decoded = decode("CreatorPlusLICENSE.png")
-        print(decoded)
+    
+        id=decoded[ : decoded.find("`")]
+        pw=decoded[decoded.find("`")+1 : ] 
 
-        try:    
-            id=decoded[ : decoded.find("`")]
-            print("id",id)
-            pw=decoded[decoded.find("`")+1 : ] 
-            print("pw",pw)
-            return id,pw
-
-        except:
+        if (id != '' or pw != '' ):
+            return id,pw   
+        else:
             print("No Data found! Key is Clear.")
     else:
         print(" Licnese Doesnt exist. CALL t.me/MATIN1099")
